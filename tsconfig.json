@@ -73,5 +73,10 @@
   "awesomeTypescriptLoaderOptions": {
     "useBabel": true,
     "babelCore": "@babel/core", // needed for Babel v7
+    /* report error matches only this global see https://github.com/s-panferov/awesome-typescript-loader/issues/492 */
+    "reportFiles": [
+      /* uncomment this when in developent*/
+      // "src/**/*.{ts,tsx}"
+    ],
   },
 }

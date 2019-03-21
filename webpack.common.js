@@ -2,6 +2,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader')
+const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: {
         app: './src/index.tsx',
@@ -13,6 +14,13 @@ module.exports = {
         new CleanWebpackPlugin(['dist'], {
             root: process.cwd()
         }),
+        new CopyPlugin([
+            {
+                from:'./src/config.json',
+                to:'./config.json',
+                toType:'file'
+            }
+        ]),
         new HtmlWebpackPlugin({
             template:"./src/index.html",
             filename:"./index.html"
@@ -28,7 +36,7 @@ module.exports = {
     },
     output: {
         filename: '[name].bundle.js',
-        chunkFilename:'[name].chunk.js',
+        chunkFilename: '[name].chunk.js',
         path: path.resolve('./dist'),
         publicPath: "/",
     },

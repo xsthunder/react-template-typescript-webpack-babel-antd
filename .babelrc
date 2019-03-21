@@ -1,4 +1,13 @@
 {
   "presets": ["@babel/preset-react"],
-  "plugins": ["@babel/plugin-syntax-object-rest-spread"] 
+  "plugins": ["@babel/plugin-syntax-object-rest-spread",
+  [ //see https://github.com/ant-design/babel-plugin-import#usage
+    "import",
+    {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style":  "css"
+    }
+  ]
+],
 }
